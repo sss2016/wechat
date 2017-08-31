@@ -6,8 +6,8 @@ class serverController extends Controller{
     function vertiy(){
         $options = [
             'debug'  => true,
-            'app_id' => 'your-app-id',
-            'secret' => 'you-secret',
+            'app_id' => 'wxde73fc69ecd9fb77',
+            'secret' => '011e665f7f82702303499fe5a78423b4',
             'token'  => 'easywechat',
             // 'aes_key' => null, // 可选
             'log' => [

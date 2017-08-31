@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/vertiy',"vertiy\serverController@vertiy");
+Route::get('/oauth',"WechatController@vertiy");

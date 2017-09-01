@@ -75,12 +75,17 @@ class WechatController extends Controller
             return json_encode(['code' => 1, 'msg' => '已报名，请不要重复报名']);
         }
 
-        DB::table('user_info')->insert([
+      $re =  DB::table('user_info')->insertGetId([
             'user_name' =>$name,
             'user_phone'=>$num,
             'open_id'   =>$openid
         ]);
-        return json_encode(['code' => 0, 'msg' => '报名成功']);
+        Log::info('jie>>>>>'.$re);
+        if ($re){
+            return json_encode(['code' => 0, 'msg' => '报名成功']);
+        }
+        return json_encode(['code' => 1, 'msg' => '报名失败']);
+
     }
 
 }

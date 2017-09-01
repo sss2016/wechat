@@ -38,7 +38,6 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="form-group">
         <div class="sign">
-            <label  for="name" class="col-sm-2 control-label">姓名</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control form_input" id="name" name="name"
                        placeholder="请输入姓名">
@@ -47,7 +46,6 @@
     </div>
     <div class="form-group">
         <div class="sign">
-            <label for="num" class="col-sm-2 control-label">电话</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control form_input" id="num" name="num"
                        placeholder="请输入电话号码">

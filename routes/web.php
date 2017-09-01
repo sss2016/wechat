@@ -18,9 +18,11 @@ Route::any('/vertiy',"vertiy\serverController@vertiy");
 Route::any('/wechat','WechatController@serve');
 Route::any('/menu_add','WechatController@menu_add');
 
-Route::group(['middleware'=>'WechatOauth'],function(){
+Route::group(['middleware' => ['web', 'wechat.oauth']],function(){
     Route::get("/enroll", function (){
-        return view('sign');
+//        return view('sign');
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+        dd($user);
     });
 });
 Route::post('/sign','WechatController@sign');

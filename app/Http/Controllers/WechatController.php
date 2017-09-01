@@ -59,14 +59,28 @@ class WechatController extends Controller
         echo "OK";
     }
     public function sign(Request $request){
-        $name = $request->name;
-        $num = $request->num;
+        $name = trim($request->name);
+        $num = trim($request->num);
+        if( strlen($name) == 0 ||  strlen($num) == 0){
+            return json_encode(['code' => 1, 'msg' => '请将数据填写完整']);
+        }
         $user = session('wechat.oauth_user');
         $openid = $user->id;
+
+        $count = DB::table("user_info")
+            ->where('open_id',$openid)
+            ->count();
+
+        if($count){
+            return json_encode(['code' => 1, 'msg' => '已报名，请不要重复报名']);
+        }
+
         DB::table('user_info')->insert([
-                'user_name'=>$name,
+            'user_name' =>$name,
             'user_phone'=>$num,
-            'open_id' =>$openid
+            'open_id'   =>$openid
         ]);
+        return json_encode(['code' => 0, 'msg' => '报名成功']);
     }
+
 }

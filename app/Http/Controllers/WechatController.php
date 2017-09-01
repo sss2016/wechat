@@ -60,6 +60,8 @@ class WechatController extends Controller
     public function sign(Request $request){
         $name = $request->name;
         $num = $request->num;
-        echo $name.'=='.$num.'=='.session('openid');
+        $user = session('wechat.oauth_user');
+        $openid = $user->id;
+        echo $name.'=='.$num.'=='.$openid;
     }
 }

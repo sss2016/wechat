@@ -50,7 +50,7 @@ class WechatController extends Controller
             [
                 "type" => "view",
                 "name" => "报名",
-                "url" => env('APP_URL') . '/wx'
+                "url" =>  url(),
             ],
 
         ];

@@ -88,9 +88,9 @@
         },function (data) {
             data = JSON.parse(data);
             if(data.code==0){
-                tipinfo("提交成功！","success");
+                tipinfo(data.msg ,"success")
             }else {
-                tipinfo(data.msg);
+                tipinfo(data.msg , "warning")
             }
         })
     }

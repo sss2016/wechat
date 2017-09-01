@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use Log;
+use DB;
 use Illuminate\Http\Request;
 class WechatController extends Controller
 {
@@ -62,6 +63,10 @@ class WechatController extends Controller
         $num = $request->num;
         $user = session('wechat.oauth_user');
         $openid = $user->id;
-        echo $name.'=='.$num.'=='.$openid;
+        DB::table('user_info')->insert([
+                'user_name'=>$name,
+            'user_phone'=>$num,
+            'open_id' =>$openid
+        ]);
     }
 }

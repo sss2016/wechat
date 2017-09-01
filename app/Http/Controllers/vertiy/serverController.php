@@ -24,7 +24,7 @@ class serverController extends Controller{
             return "欢迎关注 overtrue！";
         });
 
-        Log::info('return response.');
+//        Log::info('return response.');
 
         return $wechat->server->serve();
 

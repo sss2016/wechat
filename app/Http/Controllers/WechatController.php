@@ -9,7 +9,7 @@
 namespace App\Http\Controllers;
 
 use Log;
-
+use Illuminate\Http\Request;
 class WechatController extends Controller
 {
     /**
@@ -50,11 +50,16 @@ class WechatController extends Controller
             [
                 "type" => "view",
                 "name" => "报名",
-                "url" =>  url(),
+                "url" =>  env('APP_URL') . '/enroll'
             ],
 
         ];
         $menu->add($buttons);
         echo "OK";
+    }
+    public function sign(Request $request){
+        $name = $request->name;
+        $num = $request->num;
+        echo $name.'=='.$num.'=='.session('openid');
     }
 }

@@ -36,16 +36,13 @@
 <form role="form" style="margin-top: 500px;" action="{{ asset( 'sign' ) }} " method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="form-group">
-        <div class="col-sm-11">
-            <input type="text" class="form-control form_input sign" id="name" name="name"
-                   placeholder="请输入姓名">
-        </div>
+        <input type="text" class="form-control form_input sign" id="name" name="name"
+               placeholder="请输入姓名">
+
     </div>
     <div class="form-group">
-        <div class="col-sm-11">
-            <input type="text" class="form-control form_input sign" id="num" name="num"
-                   placeholder="请输入电话号码">
-        </div>
+        <input type="text" class="form-control form_input sign" id="num" name="num"
+               placeholder="请输入电话号码">
     </div>
     <button type="submit" class="btn btn-default form_submit">提交</button>
 </form>

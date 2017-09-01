@@ -16,9 +16,9 @@ return [
     /*
      * 账号基本信息，请从微信公众平台/开放平台获取
      */
-    'app_id'  => env('WECHAT_APPID', ''),         // AppID
-    'secret'  => env('WECHAT_SECRET', ''),     // AppSecret
-    'token'   => env('WECHAT_TOKEN', ''),          // Token
+    'app_id'  => env('WECHAT_APPID', 'your-app-id'),         // AppID
+    'secret'  => env('WECHAT_SECRET', 'your-app-secret'),     // AppSecret
+    'token'   => env('WECHAT_TOKEN', 'your-token'),          // Token
     'aes_key' => env('WECHAT_AES_KEY', ''),                    // EncodingAESKey
 
     /**
@@ -41,6 +41,18 @@ return [
     //     'aes_key' => env('WECHAT_MINI_PROGRAM_AES_KEY', ''),
     // ],
 
+    /**
+     * 路由配置
+     */
+    'route' => [
+        'enabled' => false,         // 是否开启路由
+        'attributes' => [           // 路由 group 参数
+            'prefix' => null,
+            'middleware' => null,
+            'as' => 'easywechat::',
+        ],
+        'open_platform_serve_url' => 'open-platform-serve', // 开放平台服务URL
+    ],
 
     /*
      * 日志配置
@@ -54,7 +66,6 @@ return [
         'file'  => env('WECHAT_LOG_FILE', storage_path('logs/wechat.log')),
     ],
 
-
     /*
      * OAuth 配置
      *
@@ -67,14 +78,6 @@ return [
     //     'scopes'   => array_map('trim', explode(',', env('WECHAT_OAUTH_SCOPES', 'snsapi_userinfo'))),
     //     'callback' => env('WECHAT_OAUTH_CALLBACK', '/examples/oauth_callback.php'),
     // ],
-
-
-    'oauth' => [
-        'only_wechat_browser' => false,
-        'scopes'   => ['snsapi_base'],
-        'callback' => '',
-    ],
-
 
     /*
      * 微信支付
@@ -95,15 +98,15 @@ return [
      *
      * 当 enable_mock 为 true 则会启用模拟微信授权，用于开发时使用，开发完成请删除或者改为 false 即可
      */
-//    'enable_mock' => env('WECHAT_ENABLE_MOCK', false),
-//    'mock_user' => [
-//        'openid' => 'odh7zsgI75iT8FRh0fGlSojc9PWM',
-//        // 以下字段为 scope 为 snsapi_userinfo 时需要
-//        'nickname' => 'overtrue',
-//        'sex' => '1',
-//        'province' => '北京',
-//        'city' => '北京',
-//        'country' => '中国',
-//        'headimgurl' => 'http://wx.qlogo.cn/mmopen/C2rEUskXQiblFYMUl9O0G05Q6pKibg7V1WpHX6CIQaic824apriabJw4r6EWxziaSt5BATrlbx1GVzwW2qjUCqtYpDvIJLjKgP1ug/0',
-//    ],
+    'enable_mock' => env('WECHAT_ENABLE_MOCK', false),
+    'mock_user' => [
+        'openid' => 'odh7zsgI75iT8FRh0fGlSojc9PWM',
+        // 以下字段为 scope 为 snsapi_userinfo 时需要
+        'nickname' => 'overtrue',
+        'sex' => '1',
+        'province' => '北京',
+        'city' => '北京',
+        'country' => '中国',
+        'headimgurl' => 'http://wx.qlogo.cn/mmopen/C2rEUskXQiblFYMUl9O0G05Q6pKibg7V1WpHX6CIQaic824apriabJw4r6EWxziaSt5BATrlbx1GVzwW2qjUCqtYpDvIJLjKgP1ug/0',
+    ],
 ];
